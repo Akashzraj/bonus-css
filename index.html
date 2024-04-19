@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Clip-Path</title>
+    <style>
+        .icon {
+            cursor: pointer;
+            font-size: 24px;
+            display: inline-block;
+            margin: 20px;
+        }
+
+        .info-box {
+            width: 300px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            clip-path: circle(0% at 100% 0%); /* Initially hide the box */
+            transition: clip-path 0.5s ease-out;
+            position: fixed;
+            right: 10px;
+            top: 10px;
+        }
+
+        .info-box.active {
+            clip-path: circle(150% at 100% 0%); /* Reveal the box */
+        }
+    </style>
+</head>
+<body>
+    <div class="icon" onclick="toggleInfoBox()">🔍 Click Me</div>
+    <div class="info-box">
+        <p>hi how are you</p>
+    </div>
+
+    <script>
+        function toggleInfoBox() {
+            const infoBox = document.querySelector('.info-box');
+            infoBox.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
